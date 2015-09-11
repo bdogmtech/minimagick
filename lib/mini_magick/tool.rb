@@ -196,7 +196,7 @@ module MiniMagick
     def method_missing(name, *args)
       option = "-#{name.to_s.tr('_', '-')}"
       self << option
-      self.merge!(args)
+      self << "'#{args.join(" ")}'"
       self
     end
 
